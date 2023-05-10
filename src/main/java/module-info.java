@@ -8,4 +8,5 @@ module com.example.helloworld {
     opens com.example.helloworld to javafx.fxml;
     exports com.example.helloworld;
     exports com.example.partie1;
+    exports com.example.partie2;
 }
