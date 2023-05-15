@@ -42,7 +42,7 @@ public class JeuMain extends Application {
         scene = new Scene(root);
 
         //Gestion du déplacement du personnage
-        deplacer(pacman, fantome, mur);
+        deplacer(pacman, fantome);
 
         primaryStage.setTitle("... Pac Man ...");
 
@@ -58,7 +58,7 @@ public class JeuMain extends Application {
      * @param j2
      *
      */
-    private void deplacer(Personnage j1, Personnage j2, mur) {
+    private void deplacer(Personnage j1, Personnage j2) {
         scene.setOnKeyPressed((KeyEvent event) -> {
             double j1x = j1.getLayoutX();
             double j1y = j1.getLayoutY();
@@ -96,9 +96,9 @@ public class JeuMain extends Application {
                 System.out.println("Collision....");
                 Platform.exit();
             }
-            if (j1.estEnCollision(mur)) {
-                System.out.println("Collision avec le mur");
-            }
+            //if (j1.estEnCollision) {
+               // System.out.println("Collision avec le mur");
+            //}
         });
     }
 
