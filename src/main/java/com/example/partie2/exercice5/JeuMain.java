@@ -1,11 +1,15 @@
 package com.example.partie2.exercice5;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+
+import static javafx.scene.paint.Color.AQUA;
 
 public class JeuMain extends Application {
 
@@ -24,15 +28,21 @@ public class JeuMain extends Application {
         fantome.setLayoutX(20 * 10);
         //panneau du jeu
         Pane jeu = new Pane();
+        //Obstacle
+        Obstacle mur = new Obstacle(100, 100, 40,100);
+        mur.setFill(AQUA);
+        //on construit une scene 640 * 480 pixels
         jeu.setPrefSize(640, 480);
         jeu.getChildren().add(pacman);
         jeu.getChildren().add(fantome);
+        jeu.getChildren().add(mur);
         root.setCenter(jeu);
-        //on construit une scene 640 * 480 pixels
+
+
         scene = new Scene(root);
 
         //Gestion du déplacement du personnage
-        deplacer(pacman, fantome);
+        deplacer(pacman, fantome, mur);
 
         primaryStage.setTitle("... Pac Man ...");
 
@@ -46,9 +56,14 @@ public class JeuMain extends Application {
      *
      * @param j1
      * @param j2
+     *
      */
-    private void deplacer(Personnage j1, Personnage j2) {
+    private void deplacer(Personnage j1, Personnage j2, mur) {
         scene.setOnKeyPressed((KeyEvent event) -> {
+            double j1x = j1.getLayoutX();
+            double j1y = j1.getLayoutY();
+            double j2x = j2.getLayoutX();
+            double j2y = j1.getLayoutY();
             switch (event.getCode()) {
                 case LEFT:
                     j1.deplacerAGauche();
@@ -77,9 +92,13 @@ public class JeuMain extends Application {
                     break;
 
             }
-            if (j1.estEnCollision(j2))
+            if (j1.estEnCollision(j2)) {
                 System.out.println("Collision....");
-                Application.stop;
+                Platform.exit();
+            }
+            if (j1.estEnCollision(mur)) {
+                System.out.println("Collision avec le mur");
+            }
         });
     }
 
