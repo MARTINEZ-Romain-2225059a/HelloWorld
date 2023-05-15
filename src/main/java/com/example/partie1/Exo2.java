@@ -1,17 +1,12 @@
 package com.example.partie1;
 
-import com.example.partie2.BonjourFenetre;
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.util.Random;
 
@@ -74,8 +69,6 @@ public class Exo2 extends Application {
 
         // Ajout de la scene à la fenêtre et changement de ses paramètres (dimensions et titre)
         primaryStage.setScene( scene );
-        //primaryStage.setWidth( 800 );
-        //primaryStage.setHeight( 600 );
         primaryStage.setTitle("Tic Tac Toe");
         primaryStage.setResizable(false);
 
