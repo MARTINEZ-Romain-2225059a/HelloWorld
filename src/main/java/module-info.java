@@ -9,4 +9,5 @@ module com.example.helloworld {
     exports com.example.helloworld;
     exports com.example.partie1;
     exports com.example.partie2;
+    exports com.example.partie2.exercice5;
 }

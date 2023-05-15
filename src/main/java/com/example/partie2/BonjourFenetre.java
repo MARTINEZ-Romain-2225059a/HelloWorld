@@ -48,7 +48,6 @@ public class BonjourFenetre extends Application {
         nameField.setMaxWidth(180.0d);
         nameField.setFont( Font.font("Courier", FontWeight.NORMAL, 12) );
 
-        nameField.setOnAction( actionEvent -> handleButonClick(actionEvent) );
 
         vbox.getChildren().add( nameField );
 
